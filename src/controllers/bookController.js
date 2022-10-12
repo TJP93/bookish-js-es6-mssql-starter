@@ -4,8 +4,8 @@ import express from 'express';
 class BookController {
     constructor() {
         this.router = express.Router();
-        this.router.get('/', (request, response) => this.getAllBooks(request, response) );
-        this.router.get('/:id', (request, response) => this.getBook(request, response) );
+        this.router.get('/', (request, response) => this.getAllBooks(request, response) ); // all books
+        this.router.get('/:id', (request, response) => this.getBook(request, response) );  // book/id gets specifc book by ID
     }
 
     getAllBooks(request, response) {
@@ -19,7 +19,8 @@ class BookController {
         if ( id == 0 ){
             throw ( "bad id");
         }
-        response.status(500).send({"message" : "please try later" } );
+        const mock = {"id": id, "title" : "mock", "author": "lewis"};  // mock object.
+        response.status(200).send(JSON.stringify(mock) );
     }
 }
 
