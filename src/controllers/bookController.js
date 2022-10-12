@@ -6,6 +6,9 @@ class BookController {
         this.router = express.Router();
         this.router.get('/', (request, response) => this.getAllBooks(request, response) ); // all books
         this.router.get('/:id', (request, response) => this.getBook(request, response) );  // book/id gets specifc book by ID
+        // del, post versions.
+        // this.router.delete('/:id', (request, response) => this.deleteBook(request, response) ); 
+        // this.router.post('/:id', (request, response) => this.postBook(request, response) ); 
         this.mock = [{
             "id": 1,
             "title": "mock",
@@ -34,7 +37,7 @@ class BookController {
     ];                                                                                                         // grab mock nd refer to as this.mock where prev used.
         
 
-        // del, post versions.
+       
     }
 
     getAllBooks(request, response) {
