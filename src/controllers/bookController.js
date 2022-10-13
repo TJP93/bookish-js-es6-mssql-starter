@@ -8,7 +8,7 @@ class BookController {
         this.router.get('/:id', (request, response) => this.getBook(request, response) );  // book/id gets specifc book by ID
         // del, post versions.
         // this.router.delete('/:id', (request, response) => this.deleteBook(request, response) ); 
-        // this.router.post('/:id', (request, response) => this.postBook(request, response) ); 
+        // this.router.post('/', (request, response) => this.addBook(request, response) ); 
         this.mock = [{
             "id": 1,
             "title": "mock",
@@ -34,7 +34,7 @@ class BookController {
             "title": "mock5",
             "author": "tolkien"
         }
-    ];                                                                                                         // grab mock nd refer to as this.mock where prev used.
+    ];                                                                                                         // grab mock and refer to as this.mock where prev used.
         
 
        
@@ -42,7 +42,7 @@ class BookController {
 
     getAllBooks(request, response) {
         console.log( "request for all books" + request.url );
-    let responseObject = {"result" : this.mock}                                                                            
+        let responseObject = {"result" : this.mock}                                                                            
         response.status(200).send(JSON.stringify(responseObject, null, 2) );
     }
 
